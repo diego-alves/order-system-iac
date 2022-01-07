@@ -1,21 +1,25 @@
 locals {
   workspaces = {
+    poc = {
+      gcp_project     = "chiper-poc"
+      environment     = "poc"
+      service_account = "order-system-iac@dataflow-chiper.iam.gserviceaccount.com"
+    }
     dev = {
       gcp_project     = "chiper-development"
-      environemnt     = "development"
-      service_account = "terraform-dev-chiper@chiper-development.iam.gserviceaccount.com"
+      environment     = "development"
+      service_account = "order-system-iac@dataflow-chiper.iam.gserviceaccount.com"
     }
     stag = {
       gcp_project     = "chiper-staging"
-      environemnt     = "staging"
-      service_account = "terraform-stag-chiper@chiper-staging.iam.gserviceaccount.com"
+      environment     = "staging"
+      service_account = "order-system-iac@dataflow-chiper.iam.gserviceaccount.com"
     }
     prod = {
       gcp_project = "dataflow-chiper"
-      environemnt = "production"
+      environment = "production"
     }
   }
-  kebab_name = replace(lower(var.name), " ", "-")
 }
 
 provider "google" {
