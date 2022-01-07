@@ -1,3 +1,4 @@
-module function {
+module "function" {
     source = "./modules/create-order-function"
 }
+
